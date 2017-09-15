@@ -8,7 +8,7 @@ const rimraf = require('rimraf');
 
 /*---------Pug compile---------*/
 
-gulp.task('templates:compile', function buildHTML() {
+gulp.task('pug', function buildHTML() {
     return gulp.src('source/template/*.pug')
         .pipe(pug({
             pretty: true
@@ -19,7 +19,7 @@ gulp.task('templates:compile', function buildHTML() {
 /*---------Sass compile---------*/
 
 gulp.task('sass', function () {
-    return gulp.src('source/styles/main.scss')
+    return gulp.src('source/styles/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('build/css'))
 });
@@ -47,7 +47,6 @@ gulp.task('clear', function del(cb) {
 
 
 /*---------BrowserSync---------*/
-
 gulp.task('server', function () {
     browserSync.init({
         server: {
@@ -59,5 +58,34 @@ gulp.task('server', function () {
     gulp.watch('build/**/*').on('change', browserSync.reload);
 });
 
+/*---------Copy Fonts---------*/
+gulp.task('copy:fonts', function () {
+    return gulp.src('./source/fonts/**/*.*')
+        .pipe(gulp.dest('build/fonts'));
+});
 
+/*---------Copy Images---------*/
+gulp.task('copy:images', function () {
+    return gulp.src('./source/images/**/*.*')
+        .pipe(gulp.dest('build/images'));
+});
+
+/*---------Copy ALL---------*/
+gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
+
+
+/*---------Watchers---------*/
+
+gulp.task('watch', function () {
+    gulp.watch('source/template/**/*.pug', gulp.series('pug'));
+    gulp.watch('source/styles/**/*.scss', gulp.series('sass'));
+});
+
+/*---------Default---------*/
+
+gulp.task('default', gulp.series(
+    'clear',
+    gulp.parallel('pug', 'sass', 'sprite', 'copy'),
+    gulp.parallel('watch', 'server')
+));
 
