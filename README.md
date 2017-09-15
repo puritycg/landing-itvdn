@@ -24,4 +24,22 @@
 
 > npm install
 
+#TODO
+## 1 git
+* git status
+* git add
+* git commit -m "Comment"
+* git push
+* git branch
+* git checkout
+* git merge
+
+## 2 gulp
+### install
+* autoprefixer
+* sourcemaps
+
+
+
+
 
