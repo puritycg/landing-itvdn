@@ -88,14 +88,11 @@ gulp.task('prefixer', () =>
         .pipe(gulp.dest('build/css/'))
 );
 
-
-
-
 /*---------Watchers---------*/
 
 gulp.task('watch', function () {
     gulp.watch('source/template/**/*.pug', gulp.series('pug'));
-    gulp.watch('source/styles/**/*.scss', gulp.series('sass'));
+    gulp.watch('source/styles/**/*.scss', gulp.series('sass', 'prefixer'));
 });
 
 /*---------Default---------*/
@@ -106,4 +103,6 @@ gulp.task('default', gulp.series(
     gulp.parallel('prefixer'),
     gulp.parallel('watch', 'server')
 ));
+
+
 
