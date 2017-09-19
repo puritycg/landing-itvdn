@@ -39,20 +39,20 @@
 }
 
 //Center both align
-@mixin center() {
+@mixin center-xy() {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, - 50%);
 }
 //Center horizontal align
-@mixin center_horizontal() {
+@mixin center_x() {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 //Center vertical align
-@mixin center_vertical() {
+@mixin center_y() {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

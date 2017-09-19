@@ -1,0 +1,59 @@
+$header_top_col: #f0f2f4;
+$header_top_border_col: #e2e2e2;
+$header_top_contact_col: #424242;
+$facebook-col: #1287bf;
+
+.header {
+  &__top {
+    background-color: $header_top_col;
+    border-bottom: 1px solid $header_top_border_col;
+  }
+  &__bottom{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+}
+
+.contacts {
+  text-align: right;
+}
+
+.contact {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px 10px 8px;
+  color: $header_top_contact_col;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: lighten($header_top_contact_col, 20%);
+  }
+
+  &:first-child {
+    margin-right: 8px;
+    padding-right: 18px;
+    border-right: 1px solid $header_top_border_col;
+  }
+
+  &__icon {
+    margin-right: 7px;
+    vertical-align: middle;
+    font-size: 1.5rem;
+
+    &--email {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.facebook-icon{
+  display: inline-block;
+  margin: 7px 0;
+  padding: 5px 8px 1px;
+  border-radius: 3px;
+  background-color: $facebook-col;
+  color: $text_col;
+}
