@@ -1,0 +1,80 @@
+//Circle builder
+@mixin circle($size, $color, $hoverColor) {
+  width: $size;
+  height: $size;
+  border-radius: $size/2;
+  background: $color;
+  &:hover {
+    background: $hoverColor;
+  }
+}
+//Triangle builder
+@mixin triangle($width, $direction, $squeeze, $color) {
+  width: 0;
+  height: 0;
+  display: block;
+  @if $squeeze == 0 {
+    $thin: 1;
+  }
+  @if $direction == up {
+    border-left: $width/$squeeze solid transparent;
+    border-right: $width/$squeeze solid transparent;
+    border-bottom: $width solid $color;
+  }
+  @if $direction == down {
+    border-left: $width/$squeeze solid transparent;
+    border-right: $width/$squeeze solid transparent;
+    border-top: $width solid $color;
+  }
+  @if $direction == right {
+    border-left: $width solid $color;
+    border-top: $width/$squeeze solid transparent;
+    border-bottom: $width/$squeeze solid transparent;
+  }
+  @if $direction == left {
+    border-right: $width solid $color;
+    border-top: $width/$squeeze solid transparent;
+    border-bottom: $width/$squeeze solid transparent;
+  }
+}
+
+//Center both align
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, - 50%);
+}
+//Center horizontal align
+@mixin center_horizontal() {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+//Center vertical align
+@mixin center_vertical() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+//Placeholder style
+@mixin placeholder($color){
+  &::-webkit-input-placeholder{
+    color: $color;
+  }
+  &::-moz-placeholder{
+    color: $color;
+  }
+  &:-ms-input-placeholder{
+    color: $color;
+  }
+  &::placeholder{
+    color: $color;
+  }
+}
+//Font style
+@mixin font($size, $font, $color){
+  font-size: $size;
+  font-family: $font;
+  color: $color;
+}
