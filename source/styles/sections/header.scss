@@ -1,7 +1,4 @@
-$header_top_col: #f0f2f4;
-$header_top_border_col: #e2e2e2;
-$header_top_contact_col: #424242;
-$facebook-col: #1287bf;
+
 
 .header {
   &__top {
@@ -12,7 +9,8 @@ $facebook-col: #1287bf;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
+    padding: 41px 0 32px;
   }
 }
 
@@ -24,12 +22,12 @@ $facebook-col: #1287bf;
   display: inline-block;
   vertical-align: middle;
   padding: 10px 10px 8px;
-  color: $header_top_contact_col;
+  color: $header_top_text_col;
   text-decoration: none;
   transition: 0.3s;
 
   &:hover {
-    color: lighten($header_top_contact_col, 20%);
+    color: lighten($header_top_text_col, 20%);
   }
 
   &:first-child {
@@ -40,9 +38,9 @@ $facebook-col: #1287bf;
 
   &__icon {
     margin-right: 7px;
-    vertical-align: middle;
+    vertical-align: top;
     font-size: 1.5rem;
-
+    line-height: 1.2rem;
     &--email {
       font-size: 1.2rem;
     }
@@ -51,6 +49,7 @@ $facebook-col: #1287bf;
 
 .facebook-icon{
   display: inline-block;
+  vertical-align: middle;
   margin: 7px 0;
   padding: 5px 8px 1px;
   border-radius: 3px;

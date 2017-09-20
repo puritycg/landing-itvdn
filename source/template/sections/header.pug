@@ -1,23 +1,9 @@
 header.header
     .header__top
         .container
-            .contacts
-                a.contact(href='tel:+76337318')
-                    i.fa.fa-mobile.contact__icon(aria-hidden="true")
-                    span.contact__text +7-633-73-18
-                a.contact(href="mailto:info@info.ru")
-                    i.fa.fa-envelope.contact__icon.contact__icon--email(aria-hidden="true")
-                    span.contact__text info@info.ru
-                a.facebook-icon(href="face-book")
-                    i.fa.fa-facebook(aria-hidden="true")
+            include contacts
     .container
         .header__bottom
             .logo: img.logo__picture(src="images/logo.png" alt="logo")
-            nav.nav
-                -var items = ['Home', 'About Us', 'Our Approch', 'Our Work'];
-                each item, index in items
-                    if index === 0
-                        a.nav__link.nav__link--active(href='#')= item
-                    else
-                        a.nav__link(href='#')= item
+            include nav
             a.button.header__button.button--red(href='#') Free Consultation

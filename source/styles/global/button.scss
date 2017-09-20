@@ -8,19 +8,19 @@ $text_col: #fff;
   padding: 10px 22px 7px;
   text-decoration: none;
   color: $text_col;
-  transition: 0.3s;
+  transition: 0.2s;
 
   &--red {
     background: $button_red_col;
     &:hover {
-    background: lighten($button_red_col, 7%) ;
+    background: darken($button_red_col, 3%) ;
     }
   }
 
   &--yellow {
     background: $button_yellow_col;
     &:hover {
-      background: lighten($button_yellow_col, 7%) ;
+      background: darken($button_yellow_col, 3%) ;
     }
   }
 
